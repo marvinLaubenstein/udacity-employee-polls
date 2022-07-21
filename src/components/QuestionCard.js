@@ -6,9 +6,9 @@ const QuestionCard = (props) => {
   return (
     <div className="list-item-question-card">
       <li key={props.question.id}>
-        <div>{'Author: ' + props.question.author}</div>
-        <div>{'timestamp: ' + props.question.timestamp}</div>
-        <Link to={'questions/' + props.question.id}>
+        <div>{props.question.author}</div>
+        <div>{props.question.timestamp}</div>
+        <Link to={'/questions/' + props.question.id}>
           <div>Show me the question</div>
         </Link>
       </li>

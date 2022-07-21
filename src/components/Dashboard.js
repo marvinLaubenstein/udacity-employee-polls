@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import QuestionCard from './QuestionCard';
+import GridList from '@material-ui/core/GridList';
 
 const Dashboard = (props) => {
   const checkForAlreadyAnsweredQuestions = (question) => {
@@ -24,26 +25,26 @@ const Dashboard = (props) => {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Your Dashboard</h1>
+      <h1 style={{ textAlign: 'center' }}>Your Question Dashboard</h1>
 
-      <h2 style={{ textAlign: 'center', paddingTop: '20px' }}>New Questions</h2>
-      <ul className="dashboard-list-new">
+      <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>New Questions</h2>
+      <GridList className="dashboard-list-new">
         {props.questionIDs.map((id) =>
           checkForAlreadyAnsweredQuestions(props.questions[id]) ? null : (
             <QuestionCard questionID={id} key={'card' + id}></QuestionCard>
           )
         )}
-      </ul>
-      <h2 style={{ textAlign: 'center', paddingTop: '20px' }}>
+      </GridList>
+      <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>
         Already Answered Questions
       </h2>
-      <ul className="dashboard-list-old">
+      <GridList className="dashboard-list-old">
         {props.questionIDs.map((id) =>
           checkForAlreadyAnsweredQuestions(props.questions[id]) ? (
             <QuestionCard questionID={id} key={'card' + id}></QuestionCard>
           ) : null
         )}
-      </ul>
+      </GridList>
     </div>
   );
 };
