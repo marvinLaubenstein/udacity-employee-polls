@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { handleInitialData } from './actions/shared';
+import LoadingBar from 'react-redux-loading-bar';
 
-function App() {
+const App = (props) => {
+  useEffect(() => {
+    props.dispatch(handleInitialData());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <LoadingBar />
+      <h2>Hello World</h2>
+      <h4>(data logged in console)</h4>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = ({ authedUser }) => ({
+  loading: authedUser === null,
+});
+
+export default connect(mapStateToProps)(App);
