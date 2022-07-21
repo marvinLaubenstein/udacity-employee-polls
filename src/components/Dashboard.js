@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import questions from '../reducers/questions';
+import QuestionCard from './QuestionCard';
 
 const Dashboard = (props) => {
   const checkForAlreadyAnsweredQuestions = (question) => {
@@ -24,32 +24,23 @@ const Dashboard = (props) => {
 
   return (
     <div>
-      <h3 className="title">Your Dashboard</h3>
-      <h2>New Questions</h2>
+      <h1 style={{ textAlign: 'center' }}>Your Dashboard</h1>
+
+      <h2 style={{ textAlign: 'center', paddingTop: '20px' }}>New Questions</h2>
       <ul className="dashboard-list-new">
         {props.questionIDs.map((id) =>
           checkForAlreadyAnsweredQuestions(props.questions[id]) ? null : (
-            <li key={id}>
-              <div>{id}</div>
-              <div>{props.questions[id].author}</div>
-              <div>{props.questions[id].timestamp}</div>
-              <div>{props.questions[id].optionOne.text}</div>
-              <div>{props.questions[id].optionTwo.text}</div>
-            </li>
+            <QuestionCard questionID={id}></QuestionCard>
           )
         )}
       </ul>
-      <h2>Already Answered Questions</h2>
-      <ul className="dashboard-list-new">
+      <h2 style={{ textAlign: 'center', paddingTop: '20px' }}>
+        Already Answered Questions
+      </h2>
+      <ul className="dashboard-list-old">
         {props.questionIDs.map((id) =>
           checkForAlreadyAnsweredQuestions(props.questions[id]) ? (
-            <li key={id}>
-              <div>{id}</div>
-              <div>{props.questions[id].author}</div>
-              <div>{props.questions[id].timestamp}</div>
-              <div>{props.questions[id].optionOne.text}</div>
-              <div>{props.questions[id].optionTwo.text}</div>
-            </li>
+            <QuestionCard questionID={id}></QuestionCard>
           ) : null
         )}
       </ul>
