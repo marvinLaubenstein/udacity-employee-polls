@@ -30,7 +30,7 @@ const Dashboard = (props) => {
       <ul className="dashboard-list-new">
         {props.questionIDs.map((id) =>
           checkForAlreadyAnsweredQuestions(props.questions[id]) ? null : (
-            <QuestionCard questionID={id}></QuestionCard>
+            <QuestionCard questionID={id} key={'card' + id}></QuestionCard>
           )
         )}
       </ul>
@@ -40,7 +40,7 @@ const Dashboard = (props) => {
       <ul className="dashboard-list-old">
         {props.questionIDs.map((id) =>
           checkForAlreadyAnsweredQuestions(props.questions[id]) ? (
-            <QuestionCard questionID={id}></QuestionCard>
+            <QuestionCard questionID={id} key={'card' + id}></QuestionCard>
           ) : null
         )}
       </ul>
