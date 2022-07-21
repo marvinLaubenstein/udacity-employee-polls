@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from './actions/shared';
+import Dashboard from './components/Dashboard';
 import LoadingBar from 'react-redux-loading-bar';
+import { Routes, Route } from 'react-router-dom';
 
 const App = (props) => {
   useEffect(() => {
@@ -9,11 +11,16 @@ const App = (props) => {
   }, []);
 
   return (
-    <div>
+    <Fragment>
       <LoadingBar />
-      <h2>Hello World</h2>
-      <h4>(data logged in console)</h4>
-    </div>
+      <div className="container">
+        {props.loading === true ? null : (
+          <Routes>
+            <Route path="/" exact element={<Dashboard />} />
+          </Routes>
+        )}
+      </div>
+    </Fragment>
   );
 };
 
