@@ -6,8 +6,13 @@ import { Link } from 'react-router-dom';
 const QuestionPollPage = (props) => {
   return (
     <div className="question-poll-question-poll">
-      {'This is Question: ' + props.question.id}
-      <div>Choose one !</div>
+      <h2 style={{ textAlign: 'center' }}>Answer Time</h2>
+      <div style={{ textAlign: 'center', fontSize: '10px' }}>
+        {"'" + props.question.id + "'"}
+      </div>
+      <div style={{ textAlign: 'center', paddingBottom: '30px' }}>
+        Please choose one of {props.question.author} answers
+      </div>
       <div className="answer-wrapper">
         <Link to={'/'}>
           <div className="question-poll-option-one">

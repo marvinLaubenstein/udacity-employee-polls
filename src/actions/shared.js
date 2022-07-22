@@ -3,9 +3,8 @@ import { receiveUsers } from './users';
 import { receiveQuestions } from './questions';
 import { setAuthedUser } from './authedUser';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import questions from '../reducers/questions';
 
-const AUTHED_ID = 'sarahedo';
+const AUTHED_ID = '';
 
 export function handleInitialData() {
   return (dispatch) => {

@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import QuestionPollPage from './components/QuestionPollPage';
 import LoadingBar from 'react-redux-loading-bar';
 import { Routes, Route } from 'react-router-dom';
+import LoginScreen from './components/LoginScreen';
 
 const App = (props) => {
   useEffect(() => {
@@ -17,8 +18,9 @@ const App = (props) => {
       <div className="container">
         {props.loading === true ? null : (
           <Routes>
+            <Route path="/login" exact element={<LoginScreen />} />
             <Route path="/" exact element={<Dashboard />} />
-            <Route path="questions/:id" exact element={<QuestionPollPage />} />
+            <Route path="/questions/:id" exact element={<QuestionPollPage />} />
           </Routes>
         )}
       </div>
