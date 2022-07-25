@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import QuestionCard from '../question-card/QuestionCard';
 import GridList from '@material-ui/core/ImageList';
-import { Link } from 'react-router-dom';
 import './dashboard.css';
 import Navbar from '../navbar/Navbar';
 

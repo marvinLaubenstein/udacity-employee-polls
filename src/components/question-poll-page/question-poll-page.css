@@ -1,3 +1,18 @@
+.question-title {
+  position: fixed;
+  left: 45%;
+  width: 30em;
+  top: 150px;
+  font-size: xx-large;
+}
+.question-subtitle {
+  position: fixed;
+  left: 43%;
+  width: 30em;
+  top: 190px;
+  font-size: small;
+}
+
 .question-poll-option-one {
   display: inline-block;
   margin-right: 5px;
@@ -24,4 +39,23 @@
 
 .answer-wrapper {
   margin-top: 200px;
+}
+
+.question-poll-option-one-selected {
+  display: inline-block;
+  margin-right: 5px;
+  width: 40%;
+  margin-left: 10%;
+  height: 50px;
+  border-radius: 25px;
+  background-color: green;
+}
+
+.question-poll-option-two-selected {
+  display: inline-block;
+  margin-right: 5px;
+  width: 40%;
+  height: 50px;
+  border-radius: 25px;
+  background-color: green;
 }
