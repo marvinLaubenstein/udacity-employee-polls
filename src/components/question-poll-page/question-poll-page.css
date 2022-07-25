@@ -1,0 +1,25 @@
+.question-poll-option-one {
+  text-align: center;
+  min-height: 50px;
+  width: 600px;
+  border: 2px solid;
+  border-radius: 25px;
+  padding: 10px 10px 10px 10px;
+  margin-left: 250px;
+  float: left;
+}
+
+.question-poll-option-two {
+  text-align: center;
+  min-height: 50px;
+  width: 600px;
+  border: 2px solid;
+  border-radius: 25px;
+  padding: 10px 10px 10px 10px;
+  margin-left: 900px;
+}
+
+.question-poll-question-poll {
+  width: 100%;
+  margin: 0 auto;
+}
