@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import QuestionCard from './QuestionCard';
-import GridList from '@material-ui/core/GridList';
+import QuestionCard from '../question-card/QuestionCard';
+import GridList from '@material-ui/core/ImageList';
+import { Link } from 'react-router-dom';
 
 const Dashboard = (props) => {
   const checkForAlreadyAnsweredQuestions = (question) => {
@@ -25,7 +26,12 @@ const Dashboard = (props) => {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Your Question Dashboard</h1>
+      <h1 style={{ textAlign: 'center' }}>
+        Your Question Dashboard,{' '}
+        {String(props.authedUser)[0].toUpperCase() +
+          String(props.authedUser).slice(1)}
+      </h1>
+      <Link to="/add-question">Add new Question</Link>
 
       <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>New Questions</h2>
       <GridList className="dashboard-list-new">
