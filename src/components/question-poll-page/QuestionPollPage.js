@@ -31,11 +31,30 @@ const QuestionPollPage = (props) => {
     }`;
   };
 
+  const getAnswerPercentage = (questionNumber) => {
+    const voteNumber =
+      props.question.optionOne.votes.length +
+      props.question.optionTwo.votes.length;
+    const votePercentage =
+      questionNumber === 'one'
+        ? calcPercentage(props.question.optionOne.votes.length, voteNumber)
+        : calcPercentage(props.question.optionTwo.votes.length, voteNumber);
+    return votePercentage;
+  };
+
+  const calcPercentage = (answerVotes, questionVotes) => {
+    return (answerVotes / questionVotes) * 100 + ' %';
+  };
+
   return (
     <div className="question-poll-question-poll">
       <Navbar></Navbar>
-
-      <div className="question-title">Choose one !</div>
+      <img
+        src={props.users[props.question.author]?.avatarURL}
+        alt="User"
+        className="question-poll-avatar"
+      ></img>
+      <div className="question-title">Would You Rather</div>
       <div className="question-subtitle">
         {'This is Question: ' + props.question.id}
       </div>
@@ -46,14 +65,26 @@ const QuestionPollPage = (props) => {
             className={getClassName('one', props.question.optionOne)}
             style={{ cursor: 'default' }}
           >
-            {props.question.optionOne.text}
+            <div>{props.question.optionOne.text}</div>
+            <div>
+              (
+              {getAnswerPercentage('one') +
+                ' [' +
+                props.question.optionOne.votes.length +
+                ' user]'}
+              )
+            </div>
           </button>
           <button
             id="answer2"
             className={getClassName('two', props.question.optionTwo)}
             style={{ cursor: 'default' }}
           >
-            {props.question.optionTwo.text}
+            <div>{props.question.optionTwo.text}</div>(
+            {getAnswerPercentage('two') +
+              '  [' +
+              props.question.optionTwo.votes.length}{' '}
+            user{']'} )
           </button>
         </div>
       ) : (
@@ -78,7 +109,7 @@ const QuestionPollPage = (props) => {
   );
 };
 
-const mapStateToProps = ({ questions, authedUser }) => {
+const mapStateToProps = ({ questions, authedUser, users }) => {
   const question = Object.values(questions).find(
     (question) => question.id === useParams().id
   );
@@ -86,6 +117,7 @@ const mapStateToProps = ({ questions, authedUser }) => {
   return {
     question: question,
     authedUser,
+    users,
   };
 };
 
