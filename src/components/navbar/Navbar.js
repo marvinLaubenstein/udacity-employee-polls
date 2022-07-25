@@ -13,7 +13,9 @@ const Navbar = () => {
       <li className="navbar-item">
         <Link to="/leaderboard">LeaderBoard</Link>
       </li>
-      <li className="navbar-logout-item">Logout</li>
+      <li className="navbar-logout-item">
+        <Link to="/login">Logout</Link>
+      </li>
     </ul>
   );
 };

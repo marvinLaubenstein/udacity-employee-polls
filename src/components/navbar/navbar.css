@@ -19,6 +19,10 @@
   text-decoration: none;
 }
 
+.navbar-logout-item a {
+  color: white;
+}
+
 .navbar-item a {
   display: block;
   color: white;
