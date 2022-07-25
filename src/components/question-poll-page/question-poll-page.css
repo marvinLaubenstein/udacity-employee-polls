@@ -48,7 +48,7 @@
   margin-left: 10%;
   height: 50px;
   border-radius: 25px;
-  background-color: green;
+  background-color: #04aa6d;
 }
 
 .question-poll-option-two-selected {
@@ -57,5 +57,5 @@
   width: 40%;
   height: 50px;
   border-radius: 25px;
-  background-color: green;
+  background-color: #04aa6d;
 }

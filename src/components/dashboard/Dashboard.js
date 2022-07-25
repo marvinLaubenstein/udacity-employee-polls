@@ -47,7 +47,11 @@ const Dashboard = (props) => {
       <GridList className="dashboard-list-old">
         {props.questionIDs.map((id) =>
           checkForAlreadyAnsweredQuestions(props.questions[id]) ? (
-            <QuestionCard questionID={id} key={'card' + id}></QuestionCard>
+            <QuestionCard
+              questionID={id}
+              key={'card' + id}
+              answered
+            ></QuestionCard>
           ) : null
         )}
       </GridList>

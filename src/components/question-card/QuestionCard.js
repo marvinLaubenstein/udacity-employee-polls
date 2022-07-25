@@ -2,16 +2,14 @@ import { connect } from 'react-redux';
 import './question-card.css';
 import { Link } from 'react-router-dom';
 
-const QuestionCard = (props) => {
+const QuestionCard = ({ answered, question }) => {
   return (
-    <div className="list-item-question-card">
-      <li key={props.question.id}>
-        <div>{props.question.author}</div>
-        <div>{props.question.timestamp}</div>
-        <Link to={'/questions/' + props.question.id}>
-          <div>Show me the question</div>
-        </Link>
+    <div className={`list-item-question-card${answered ? '-answered' : ''}`}>
+      <li key={question.id} className="question-card-list">
+        <div>{question.author}</div>
+        <div>{question.timestamp}</div>
       </li>
+      <Link to={'/questions/' + question.id}>Show me the question</Link>
     </div>
   );
 };

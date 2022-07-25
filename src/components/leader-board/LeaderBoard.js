@@ -1,67 +1,55 @@
 import { connect } from 'react-redux';
-import users from '../../reducers/users';
 import { Link } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
+import './leaderboard.css';
+import { useState } from 'react';
 
 const LeaderBoard = (props) => {
-  const getUserLeadershipData = () => {
-    props.users.map((user) => {
-      if (user.id === props.authedUser) {
-        console.log(Object.values(user.answers).length);
-      }
-    });
-  };
+  const [authUserData, setUserData] = useState('');
 
   return (
     <div>
       <Navbar></Navbar>
-      <div
-        style={{
-          width: '600px',
-          border: '1px solid black',
-          overflow: 'hidden',
-        }}
-      >
-        {props.users.map((user) => (
-          <div>{user.id === props.authedUser ? user.id : null}</div>
-        ))}
-        {props.users.map((user) => (
-          <div>
-            {user.id === props.authedUser
-              ? Object.values(user.answers).length
-              : null}
-          </div>
-        ))}
-        {props.users.map((user) => (
-          <div>
-            {user.id === props.authedUser
-              ? Object.values(user.questions).length
-              : null}
-          </div>
-        ))}
-        {props.users.map((user) => (
-          <div>{user.id}</div>
-        ))}
-        {props.users.map((user) => (
-          <div>{Object.values(user.answers).length}</div>
-        ))}
-        {props.users.map((user) => (
-          <div>{Object.values(user.questions).length}</div>
-        ))}
+      <div>
+        {props.users.map((user) =>
+          user.id === props.authedUser ? (
+            <h3 key={user.id + 'title'}>{`Thank you ${
+              String(props.authedUser)[0].toUpperCase() +
+              String(props.authedUser).slice(1)
+            } for ${Object.values(user.questions).length} Questions and ${
+              Object.values(user.answers).length
+            } Answers`}</h3>
+          ) : null
+        )}
       </div>
-      <Link to={'/'}>
-        <div className="question-poll-option-two">Home</div>
-      </Link>
+      <table>
+        <tbody>
+          <tr>
+            <th>User</th>
+            <th>Answers</th>
+            <th>Questions</th>
+          </tr>
+          {props.users.map((user) => (
+            <tr key={user.id}>
+              <td key={user.id + 'id'}>{user.id}</td>
+              <td key={user.id + 'answer'}>
+                {Object.values(user.answers).length}
+              </td>
+              <td key={user.id + 'question'}>
+                {Object.values(user.questions).length}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
 
-const mapStateToProps = ({ questions, users, authedUser }) => ({
-  questionIDs: Object.keys(questions).sort(
-    (a, b) => questions[b].timestamp - questions[a].timestamp
+const mapStateToProps = ({ users, authedUser }) => ({
+  users: Object.values(users).sort(
+    (a, b) => Object.keys(b.answers).length - Object.keys(a.answers).length
   ),
-  questions,
-  users: Object.values(users),
   authedUser,
 });
 
