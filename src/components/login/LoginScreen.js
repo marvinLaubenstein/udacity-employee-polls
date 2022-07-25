@@ -1,24 +1,33 @@
 import React, { useRef } from 'react';
 import { Grid, Paper, Avatar, TextField, Button } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { handleAuthUserLogin } from '../../actions/authedUser';
 import { useNavigate } from 'react-router-dom';
 
 const LoginScreen = (props) => {
   const usernameValueRef = useRef('');
   const passwordValueRef = useRef('');
   const navigate = useNavigate();
+
   const handleClick = (event) => {
     console.log('User' + usernameValueRef.current.value);
     console.log('Password' + passwordValueRef.current.value);
-    navigate('/');
+
+    props.dispatch(
+      handleAuthUserLogin(
+        usernameValueRef.current.value,
+        passwordValueRef.current.value
+      )
+    );
     event.preventDefault();
   };
-
-  //   if (props.isLoggedIn) {
-  //     console.log('loggedIn' + props.isLoggedIn);
-  //     return <Navigate to="/" replace={true} />;
-  //   }
+  if (props.isLoggedIn) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectUrl = urlParams.get('redirectTo');
+    return <Navigate to={redirectUrl ? redirectUrl : '/'} />;
+  }
 
   return (
     <Grid>
@@ -44,6 +53,7 @@ const LoginScreen = (props) => {
           fullWidth
           required
           inputRef={usernameValueRef}
+          value="sarahedo"
         />
         <TextField
           style={{ paddingBottom: '10px' }}
@@ -53,6 +63,7 @@ const LoginScreen = (props) => {
           variant="outlined"
           fullWidth
           required
+          value="password123"
           inputRef={passwordValueRef}
         />
         <Button
