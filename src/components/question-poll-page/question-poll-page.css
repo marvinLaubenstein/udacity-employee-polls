@@ -1,25 +1,27 @@
 .question-poll-option-one {
-  text-align: center;
-  min-height: 50px;
-  width: 600px;
-  border: 2px solid;
+  display: inline-block;
+  margin-right: 5px;
+  cursor: pointer;
+  width: 40%;
+  margin-left: 10%;
+  height: 50px;
   border-radius: 25px;
-  padding: 10px 10px 10px 10px;
-  margin-left: 250px;
-  float: left;
 }
 
 .question-poll-option-two {
-  text-align: center;
-  min-height: 50px;
-  width: 600px;
-  border: 2px solid;
+  display: inline-block;
+  margin-right: 5px;
+  cursor: pointer;
+  width: 40%;
+  height: 50px;
   border-radius: 25px;
-  padding: 10px 10px 10px 10px;
-  margin-left: 900px;
 }
 
 .question-poll-question-poll {
   width: 100%;
   margin: 0 auto;
+}
+
+.answer-wrapper {
+  margin-top: 200px;
 }
