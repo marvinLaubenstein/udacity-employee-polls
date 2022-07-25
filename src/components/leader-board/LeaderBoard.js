@@ -10,7 +10,7 @@ const LeaderBoard = (props) => {
   return (
     <div>
       <Navbar></Navbar>
-      <div>
+      <div className="leaderboard-title">
         {props.users.map((user) =>
           user.id === props.authedUser ? (
             <h3 key={user.id + 'title'}>{`Thank you ${
@@ -22,7 +22,7 @@ const LeaderBoard = (props) => {
           ) : null
         )}
       </div>
-      <table>
+      <table className="leaderboard-table">
         <tbody>
           <tr>
             <th>User</th>

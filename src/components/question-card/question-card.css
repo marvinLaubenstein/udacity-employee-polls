@@ -47,3 +47,8 @@ a:link {
 .question-card-avatar {
   height: 50px;
 }
+
+.list-item-question-card-answered .question-card-avatar {
+  opacity: 0.3;
+  filter: alpha(opacity=40); /* msie */
+}
