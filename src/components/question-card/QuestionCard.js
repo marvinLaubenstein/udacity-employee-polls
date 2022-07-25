@@ -1,11 +1,16 @@
 import { connect } from 'react-redux';
 import './question-card.css';
-import { Link } from 'react-router-dom';
+import { Link, useResolvedPath } from 'react-router-dom';
 
-const QuestionCard = ({ answered, question }) => {
+const QuestionCard = ({ answered, question, users }) => {
   return (
     <div className={`list-item-question-card${answered ? '-answered' : ''}`}>
       <li key={question.id} className="question-card-list">
+        <img
+          src={users[question.author]?.avatarURL}
+          alt="User"
+          className="question-card-avatar"
+        ></img>
         <div>{question.author}</div>
         <div>{question.timestamp}</div>
       </li>
@@ -14,10 +19,11 @@ const QuestionCard = ({ answered, question }) => {
   );
 };
 
-const mapStateToProps = ({ questions }, { questionID }) => {
+const mapStateToProps = ({ questions, users }, { questionID }) => {
   const question = questions[questionID];
   return {
     question: question,
+    users,
   };
 };
 

@@ -43,3 +43,7 @@ a:link {
 .question-card-list {
   margin-bottom: 20px;
 }
+
+.question-card-avatar {
+  height: 50px;
+}
