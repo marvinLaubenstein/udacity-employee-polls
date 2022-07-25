@@ -1,24 +1,39 @@
 import { connect } from 'react-redux';
 import './question-poll-page.css';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { handleSelectedAnswer } from '../../actions/questions';
 
 const QuestionPollPage = (props) => {
+  const navigate = useNavigate();
+  const handleAnswer = (e) => {
+    console.log(e.target.id);
+    console.log(props.question.id);
+    e.preventDefault();
+    e.target.id === 'answer1'
+      ? props.dispatch(handleSelectedAnswer(props.question.id, 'optionOne'))
+      : props.dispatch(handleSelectedAnswer(props.question.id, 'optionTwo'));
+    navigate('/');
+  };
+
   return (
     <div className="question-poll-question-poll">
       {'This is Question: ' + props.question.id}
       <div>Choose one !</div>
       <div className="answer-wrapper">
-        <Link to={'/'}>
-          <div className="question-poll-option-one">
-            {props.question.optionOne.text}
-          </div>
-        </Link>
-        <Link to={'/'}>
-          <div className="question-poll-option-two">
-            {props.question.optionTwo.text}
-          </div>
-        </Link>
+        <button
+          id="answer1"
+          onClick={handleAnswer}
+          className="question-poll-option-one"
+        >
+          {props.question.optionOne.text}
+        </button>
+        <button
+          id="answer2"
+          onClick={handleAnswer}
+          className="question-poll-option-two"
+        >
+          {props.question.optionTwo.text}
+        </button>
       </div>
     </div>
   );
