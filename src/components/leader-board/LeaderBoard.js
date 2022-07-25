@@ -29,6 +29,7 @@ const LeaderBoard = (props) => {
             <th>User</th>
             <th>Answers</th>
             <th>Questions</th>
+            <th>Score</th>
           </tr>
           {props.users.map((user) => (
             <tr key={user.id}>
@@ -56,6 +57,13 @@ const LeaderBoard = (props) => {
               >
                 {Object.values(user.questions).length}
               </td>
+              <td
+                key={user.id + 'question'}
+                className="leaderboard-table-question-column"
+              >
+                {Object.values(user.questions).length +
+                  Object.values(user.answers).length}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -65,13 +73,13 @@ const LeaderBoard = (props) => {
 };
 
 const mapStateToProps = ({ users, authedUser }) => ({
-  users: Object.values(users).sort(
-    (a, b) =>
-      Object.keys(b.answers).length +
-      Object.keys(b.questions).length -
-      Object.keys(a.answers).length +
-      Object.keys(a.questions).length
-  ),
+  users: Object.values(users).sort((a, b) => {
+    const aSum =
+      Object.keys(a.answers).length + Object.keys(a.questions).length;
+    const bSum =
+      Object.keys(b.answers).length + Object.keys(b.questions).length;
+    return bSum - aSum;
+  }),
   authedUser,
 });
 
