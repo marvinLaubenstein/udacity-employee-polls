@@ -3,6 +3,7 @@ import QuestionCard from '../question-card/QuestionCard';
 import GridList from '@material-ui/core/ImageList';
 import { Link } from 'react-router-dom';
 import './dashboard.css';
+import Navbar from '../navbar/Navbar';
 
 const Dashboard = (props) => {
   const checkForAlreadyAnsweredQuestions = (question) => {
@@ -27,23 +28,12 @@ const Dashboard = (props) => {
 
   return (
     <div>
+      <Navbar></Navbar>
       <h1 style={{ textAlign: 'center' }}>
         Your Question Dashboard,{' '}
         {String(props.authedUser)[0].toUpperCase() +
           String(props.authedUser).slice(1)}
       </h1>
-      <ul className="dashboard-navbar">
-        <li className="dashboard-navbar-item">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="dashboard-navbar-item">
-          <Link to="/add-question">New Question</Link>
-        </li>
-        <li className="dashboard-navbar-item">
-          <Link to="/leaderboard">LeaderBoard</Link>
-        </li>
-      </ul>
-
       <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>New Questions</h2>
       <GridList className="dashboard-list-new">
         {props.questionIDs.map((id) =>
