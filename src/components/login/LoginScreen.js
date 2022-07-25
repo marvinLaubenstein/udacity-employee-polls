@@ -49,7 +49,6 @@ const LoginScreen = (props) => {
           fullWidth
           required
           inputRef={usernameValueRef}
-          value="sarahedo"
         />
         <TextField
           style={{ paddingBottom: '10px' }}
@@ -59,7 +58,6 @@ const LoginScreen = (props) => {
           variant="outlined"
           fullWidth
           required
-          value="password123"
           inputRef={passwordValueRef}
         />
         <Button
