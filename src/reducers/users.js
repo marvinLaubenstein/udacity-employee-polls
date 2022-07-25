@@ -11,11 +11,13 @@ export default function users(state = {}, action) {
         ...state,
         ...action.users,
       };
-
     case ADD_NEW_QUESTION_TO_USER:
       return {
         ...state,
-        [action.question.id]: action.question,
+        [action.author]: {
+          ...state[action.author],
+          questions: state[action.author].questions.concat(action.qid),
+        },
       };
     case ADD_QUESTION_ANSWER_TO_USER:
       return {
