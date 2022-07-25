@@ -5,23 +5,24 @@ import './leaderboard.css';
 import { useState } from 'react';
 
 const LeaderBoard = (props) => {
-  const [authUserData, setUserData] = useState('');
-
   return (
     <div>
       <Navbar></Navbar>
       <div className="leaderboard-title">
         {props.users.map((user) =>
           user.id === props.authedUser ? (
-            <h3 key={user.id + 'title'}>{`Thank you ${
-              String(props.authedUser)[0].toUpperCase() +
-              String(props.authedUser).slice(1)
-            } for ${Object.values(user.questions).length} Questions and ${
-              Object.values(user.answers).length
-            } Answers`}</h3>
+            <div key={'test'}>
+              <h3 key={user.id + 'title'}>{`Thank you ${
+                String(props.authedUser)[0].toUpperCase() +
+                String(props.authedUser).slice(1)
+              } for ${Object.values(user.questions).length} Questions and ${
+                Object.values(user.answers).length
+              } Answers`}</h3>
+            </div>
           ) : null
         )}
       </div>
+
       <table className="leaderboard-table">
         <tbody>
           <tr>
@@ -31,11 +32,28 @@ const LeaderBoard = (props) => {
           </tr>
           {props.users.map((user) => (
             <tr key={user.id}>
-              <td key={user.id + 'id'}>{user.id}</td>
-              <td key={user.id + 'answer'}>
+              <td
+                key={user.id + 'id'}
+                className="leaderboard-table-user-column"
+              >
+                <img
+                  key={user.id + 'avatar'}
+                  src={user.avatarURL}
+                  alt="User"
+                  className="leaderboard-table-avatar-column"
+                ></img>
+                <div className="leaderboard-table-name-column">{user.id}</div>
+              </td>
+              <td
+                key={user.id + 'answer'}
+                className="leaderboard-table-answer-column"
+              >
                 {Object.values(user.answers).length}
               </td>
-              <td key={user.id + 'question'}>
+              <td
+                key={user.id + 'question'}
+                className="leaderboard-table-question-column"
+              >
                 {Object.values(user.questions).length}
               </td>
             </tr>
@@ -48,7 +66,11 @@ const LeaderBoard = (props) => {
 
 const mapStateToProps = ({ users, authedUser }) => ({
   users: Object.values(users).sort(
-    (a, b) => Object.keys(b.answers).length - Object.keys(a.answers).length
+    (a, b) =>
+      Object.keys(b.answers).length +
+      Object.keys(b.questions).length -
+      Object.keys(a.answers).length +
+      Object.keys(a.questions).length
   ),
   authedUser,
 });

@@ -23,3 +23,23 @@ th {
 .leaderboard-title {
   margin: 10px;
 }
+
+.leaderboard-table-user-column {
+  padding-left: 20px;
+  width: 500px;
+}
+
+.leaderboard-table-avatar-column {
+  width: 200px;
+  float: left;
+  border: 1px solid #04aa6d;
+  height: 40px;
+  width: 40px;
+  margin: 0 10px 0 10px;
+}
+
+.leaderboard-table-name-column {
+  width: 200px;
+  text-align: left;
+  margin: 10px;
+}
