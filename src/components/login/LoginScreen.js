@@ -4,12 +4,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleAuthUserLogin } from '../../actions/authedUser';
-import { useNavigate } from 'react-router-dom';
 
 const LoginScreen = (props) => {
   const usernameValueRef = useRef('');
   const passwordValueRef = useRef('');
-  const navigate = useNavigate();
 
   const handleClick = (event) => {
     console.log('User' + usernameValueRef.current.value);
@@ -24,9 +22,7 @@ const LoginScreen = (props) => {
     event.preventDefault();
   };
   if (props.isLoggedIn) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const redirectUrl = urlParams.get('redirectTo');
-    return <Navigate to={redirectUrl ? redirectUrl : '/'} />;
+    return <Navigate to={'/'} />;
   }
 
   return (
