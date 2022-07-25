@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { handleAddNewQuestion } from '../../actions/questions';
+import Navbar from '../navbar/Navbar';
 
 const QuestionAddingPage = ({ dispatch }) => {
   const [firstAnswer, setFirstAnswer] = useState([]);
@@ -22,6 +23,7 @@ const QuestionAddingPage = ({ dispatch }) => {
 
   return (
     <div>
+      <Navbar></Navbar>
       <label>Answer 1:</label>
       <input type="text" id="question1" onChange={handleChange}></input>
       <label>Answer 2:</label>

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import './question-poll-page.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { handleSelectedAnswer } from '../../actions/questions';
+import Navbar from '../navbar/Navbar';
 
 const QuestionPollPage = (props) => {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const QuestionPollPage = (props) => {
 
   return (
     <div className="question-poll-question-poll">
+      <Navbar></Navbar>
       {'This is Question: ' + props.question.id}
       <div>Choose one !</div>
       <div className="answer-wrapper">

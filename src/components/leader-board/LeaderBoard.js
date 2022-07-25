@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import users from '../../reducers/users';
 import { Link } from 'react-router-dom';
+import Navbar from '../navbar/Navbar';
 
 const LeaderBoard = (props) => {
   const getUserLeadershipData = () => {
@@ -13,6 +14,7 @@ const LeaderBoard = (props) => {
 
   return (
     <div>
+      <Navbar></Navbar>
       <div
         style={{
           width: '600px',
