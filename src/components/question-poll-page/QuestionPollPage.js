@@ -1,12 +1,17 @@
 import { connect } from 'react-redux';
 import './question-poll-page.css';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { handleSelectedAnswer } from '../../actions/questions';
 
 const QuestionPollPage = (props) => {
   const navigate = useNavigate();
   const handleAnswer = (e) => {
     console.log(e.target.id);
+    console.log(props.question.id);
+    e.preventDefault();
+    e.target.id === 'answer1'
+      ? props.dispatch(handleSelectedAnswer(props.question.id, 'optionOne'))
+      : props.dispatch(handleSelectedAnswer(props.question.id, 'optionTwo'));
     navigate('/');
   };
 
