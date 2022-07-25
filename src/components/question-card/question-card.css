@@ -1,9 +1,45 @@
 .list-item-question-card {
   text-align: center;
-  min-height: 50px;
+  min-height: 70px;
   min-width: 300px;
   border: 2px solid;
   border-radius: 25px;
   padding: 10px 10px 10px 10px;
   margin: 10px;
+  background-color: #04aa6d;
+}
+
+.list-item-question-card a {
+  color: black;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+}
+
+.list-item-question-card-answered {
+  text-align: center;
+  min-height: 70px;
+  min-width: 300px;
+  border: 2px solid;
+  border-radius: 25px;
+  padding: 10px 10px 10px 10px;
+  margin: 10px;
+  color: grey;
+  background-color: lightgrey;
+}
+
+.list-item-question-card-answered a {
+  color: grey;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.question-card-list {
+  margin-bottom: 20px;
 }
