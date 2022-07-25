@@ -4,19 +4,19 @@ import { useNavigate } from 'react-router-dom';
 import { handleAddNewQuestion } from '../../actions/questions';
 
 const QuestionAddingPage = ({ dispatch }) => {
-  const [answerOne, setAnswerOne] = useState([]);
-  const [answerTwo, setAnswerTwo] = useState([]);
+  const [firstAnswer, setFirstAnswer] = useState([]);
+  const [secondAnswer, setSecondAnswer] = useState([]);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     e.target.id === 'question1'
-      ? setAnswerOne(e.target.value)
-      : setAnswerTwo(e.target.value);
+      ? setFirstAnswer(e.target.value)
+      : setSecondAnswer(e.target.value);
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch(handleAddNewQuestion(answerOne, answerTwo));
+    dispatch(handleAddNewQuestion(firstAnswer, secondAnswer));
     navigate('/');
   };
 

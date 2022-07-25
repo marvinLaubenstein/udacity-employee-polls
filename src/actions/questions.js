@@ -17,13 +17,12 @@ function addNewQuestion(question) {
     question,
   };
 }
-export function handleAddNewQuestion(answerOne, answerTwo) {
-  return (dispatch, getState) => {
+export function handleAddNewQuestion(firstAnswer, secondAnswer) {
+  return async (dispatch, getState) => {
     const { authedUser } = getState();
 
-    return saveQuestion(answerOne, answerTwo, authedUser).then((question) => {
-      dispatch(addNewQuestion(question));
-      dispatch(addNewQuestionToUser(question));
-    });
+    const question = await saveQuestion(firstAnswer, secondAnswer, authedUser);
+    dispatch(addNewQuestion(question));
+    dispatch(addNewQuestionToUser(question));
   };
 }
