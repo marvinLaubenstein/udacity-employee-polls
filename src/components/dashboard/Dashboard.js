@@ -32,6 +32,8 @@ const Dashboard = (props) => {
           String(props.authedUser).slice(1)}
       </h1>
       <Link to="/add-question">Add new Question</Link>
+      <br></br>
+      <Link to="/leaderboard">LeaderBoard</Link>
 
       <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>New Questions</h2>
       <GridList className="dashboard-list-new">

@@ -6,6 +6,7 @@ import QuestionPollPage from './components/question-poll-page/QuestionPollPage';
 import QuestionAddingPage from './components/question-adding-page/QuestionAddingPage';
 import LoadingBar from 'react-redux-loading-bar';
 import { Routes, Route } from 'react-router-dom';
+import LeaderBoard from './components/leader-board/LeaderBoard';
 
 const App = (props) => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const App = (props) => {
               exact
               element={<QuestionAddingPage />}
             />
+            <Route path="/leaderboard" exact element={<LeaderBoard />}></Route>
           </Routes>
         )}
       </div>
