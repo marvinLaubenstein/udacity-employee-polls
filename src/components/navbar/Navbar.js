@@ -20,7 +20,7 @@ const Navbar = (props) => {
             <Link to="/">Home</Link>
           </li>
           <li className="navbar-link-item">
-            <Link to="/add-question">New Question</Link>
+            <Link to="/add">New Question</Link>
           </li>
           <li className="navbar-link-item">
             <Link to="/leaderboard">LeaderBoard</Link>

@@ -33,7 +33,7 @@ const Dashboard = (props) => {
         {String(props.authedUser)[0].toUpperCase() +
           String(props.authedUser).slice(1)}
       </h1>
-      <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>New Questions</h2>
+      <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>Unanswered</h2>
       <GridList className="dashboard-list-new">
         {props.questionIDs.map((id) =>
           checkForAlreadyAnsweredQuestions(props.questions[id]) ? null : (
@@ -42,7 +42,7 @@ const Dashboard = (props) => {
         )}
       </GridList>
       <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>
-        Already Answered Questions
+        Already Answered
       </h2>
       <GridList className="dashboard-list-old">
         {props.questionIDs.map((id) =>

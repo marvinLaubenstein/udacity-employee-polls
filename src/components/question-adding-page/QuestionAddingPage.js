@@ -32,9 +32,7 @@ const QuestionAddingPage = ({ dispatch }) => {
     <div>
       <Navbar></Navbar>
       <div className="question-adding-page-title-wrapper">
-        <h1 className="question-adding-page-title">
-          Please enter your question answers
-        </h1>
+        <h1 className="question-adding-page-title">Would you rather</h1>
 
         {error ? (
           <h3 className="question-adding-page-errormessage">
