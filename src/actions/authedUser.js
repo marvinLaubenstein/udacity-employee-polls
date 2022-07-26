@@ -1,5 +1,5 @@
 export const SET_AUTHED_USER = 'SET_AUTHED_USER';
-export const LOGOUT_AUTHED_USER = 'LOGOUT_AUTHED_USER';
+export const RESET_AUTHED_USER = 'LOGOUT_AUTHED_USER';
 
 export function setAuthedUser(authedUserId) {
   return {
@@ -8,9 +8,9 @@ export function setAuthedUser(authedUserId) {
   };
 }
 
-export function logoutAuthedUser() {
+export function resetAuthedUser() {
   return {
-    type: LOGOUT_AUTHED_USER,
+    type: RESET_AUTHED_USER,
   };
 }
 
@@ -28,5 +28,11 @@ export function handleAuthUserLogin(username, password) {
     if (!!user) {
       return dispatch(setAuthedUser(user.id));
     }
+  };
+}
+
+export function handleAuthUserLogout(username) {
+  return (dispatch) => {
+    dispatch(resetAuthedUser());
   };
 }
