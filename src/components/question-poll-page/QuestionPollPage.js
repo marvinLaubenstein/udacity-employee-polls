@@ -8,8 +8,6 @@ const QuestionPollPage = (props) => {
   const navigate = useNavigate();
 
   const handleAnswer = (e) => {
-    console.log(e.target.id);
-    console.log(props.question.id);
     e.preventDefault();
     e.target.id === 'answer1'
       ? props.dispatch(handleSelectedAnswer(props.question.id, 'optionOne'))
@@ -31,12 +29,12 @@ const QuestionPollPage = (props) => {
     }`;
   };
 
-  const getAnswerPercentage = (questionNumber) => {
+  const getAnswerPercentage = (answerNumber) => {
     const voteNumber =
       props.question.optionOne.votes.length +
       props.question.optionTwo.votes.length;
     const votePercentage =
-      questionNumber === 'one'
+      answerNumber === 'one'
         ? calcPercentage(props.question.optionOne.votes.length, voteNumber)
         : calcPercentage(props.question.optionTwo.votes.length, voteNumber);
     return votePercentage;
@@ -44,6 +42,10 @@ const QuestionPollPage = (props) => {
 
   const calcPercentage = (answerVotes, questionVotes) => {
     return Math.round((answerVotes / questionVotes) * 100) + ' %';
+  };
+
+  const generatePercentageString = (answerNumber, userVotes) => {
+    return getAnswerPercentage(answerNumber) + '  (' + userVotes + ' Vote)';
   };
 
   return (
@@ -58,53 +60,42 @@ const QuestionPollPage = (props) => {
       <div className="question-subtitle">
         {'This is Question: ' + props.question.id}
       </div>
-      {votedQuestion() ? (
-        <div className="answer-wrapper">
-          <button
-            id="answer1"
-            className={getClassName('one', props.question.optionOne)}
-            style={{ cursor: 'default' }}
-          >
-            <div>{props.question.optionOne.text}</div>
-            <div>
-              (
-              {getAnswerPercentage('one') +
-                ' [' +
-                props.question.optionOne.votes.length +
-                ' user]'}
+      <div className="answer-wrapper">
+        <button
+          id="answer1"
+          className={getClassName('one', props.question.optionOne)}
+          onClick={votedQuestion() ? null : handleAnswer}
+          style={
+            votedQuestion() ? { cursor: 'default' } : { cursor: 'pointer' }
+          }
+        >
+          <div>{props.question.optionOne.text}</div>
+          <div>
+            {votedQuestion()
+              ? generatePercentageString(
+                  'one',
+                  props.question.optionOne.votes.length
+                )
+              : null}
+          </div>
+        </button>
+        <button
+          id="answer2"
+          className={getClassName('two', props.question.optionTwo)}
+          style={
+            votedQuestion() ? { cursor: 'default' } : { cursor: 'pointer' }
+          }
+          onClick={votedQuestion() ? null : handleAnswer}
+        >
+          <div>{props.question.optionTwo.text}</div>
+          {votedQuestion()
+            ? generatePercentageString(
+                'two',
+                props.question.optionTwo.votes.length
               )
-            </div>
-          </button>
-          <button
-            id="answer2"
-            className={getClassName('two', props.question.optionTwo)}
-            style={{ cursor: 'default' }}
-          >
-            <div>{props.question.optionTwo.text}</div>(
-            {getAnswerPercentage('two') +
-              '  [' +
-              props.question.optionTwo.votes.length}{' '}
-            user{']'} )
-          </button>
-        </div>
-      ) : (
-        <div className="answer-wrapper">
-          <button
-            id="answer1"
-            onClick={handleAnswer}
-            className={getClassName('one', props.question.optionOne)}
-          >
-            {props.question.optionOne.text}
-          </button>
-          <button
-            id="answer2"
-            onClick={handleAnswer}
-            className={getClassName('two', props.question.optionTwo)}
-          >
-            {props.question.optionTwo.text}
-          </button>
-        </div>
-      )}
+            : null}
+        </button>
+      </div>
     </div>
   );
 };
