@@ -44,11 +44,15 @@ a:link {
   margin-bottom: 20px;
 }
 
-.question-card-avatar {
+.question-card-list-avatar {
   height: 50px;
 }
 
-.list-item-question-card-answered .question-card-avatar {
+.list-item-question-card-answered .question-card-list-avatar {
   opacity: 0.3;
   filter: alpha(opacity=40); /* msie */
+}
+
+.question-card-list-date {
+  font-size: 6px;
 }

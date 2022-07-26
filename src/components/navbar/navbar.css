@@ -16,7 +16,25 @@
   text-align: center;
   padding: 14px 16px;
   margin-left: 90%;
+
   text-decoration: none;
+}
+
+.navbar-logout-item button {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  padding: 8px 40px;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 18.4px;
+}
+
+.navbar-logout-item button:hover {
+  background-color: #111;
 }
 
 .navbar-item a {
