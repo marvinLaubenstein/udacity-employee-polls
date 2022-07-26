@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
 import './leaderboard.css';
-import { useState } from 'react';
 
 const LeaderBoard = (props) => {
   return (

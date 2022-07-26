@@ -9,10 +9,12 @@ const QuestionCard = ({ answered, question, users }) => {
         <img
           src={users[question.author]?.avatarURL}
           alt="User"
-          className="question-card-avatar"
+          className="question-card-list-avatar"
         ></img>
-        <div>{question.author}</div>
-        <div>{question.timestamp}</div>
+        <div className="question-card-list-author">{question.author}</div>
+        <div className="question-card-list-date">
+          {Date(question.timestamp)}
+        </div>
       </li>
       <Link to={'/questions/' + question.id}>Show me the question</Link>
     </div>

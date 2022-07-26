@@ -4,6 +4,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleAuthUserLogin } from '../../actions/authedUser';
+import './loginscreen.css';
 
 const LoginScreen = (props) => {
   const usernameValueRef = useRef('');
@@ -28,6 +29,7 @@ const LoginScreen = (props) => {
   return (
     <Grid>
       <Paper
+        className="login-screen-paper"
         elevation={10}
         style={{
           padding: '20px',
@@ -36,7 +38,7 @@ const LoginScreen = (props) => {
         }}
       >
         <Grid align="center">
-          <Avatar style={{ backgroundColor: '#5B99C7' }}>
+          <Avatar style={{ backgroundColor: '#04aa6d' }}>
             <LockOutlinedIcon />
           </Avatar>
           <h2>Welcome-Login</h2>
@@ -61,7 +63,7 @@ const LoginScreen = (props) => {
           inputRef={passwordValueRef}
         />
         <Button
-          style={{ padding: '10px' }}
+          style={{ padding: '10px', background: '#04aa6d' }}
           type="submit"
           color="primary"
           variant="contained"
