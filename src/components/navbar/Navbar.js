@@ -11,14 +11,21 @@ const Navbar = (props) => {
 
   return (
     <ul className="navbar">
-      <li className="navbar-item">
-        <Link to="/">Home</Link>
+      <li>
+        <div className="navbar-auth-user-item">{props.authedUser}</div>
       </li>
-      <li className="navbar-item">
-        <Link to="/add-question">New Question</Link>
-      </li>
-      <li className="navbar-item">
-        <Link to="/leaderboard">LeaderBoard</Link>
+      <li>
+        <ul className="navbar-link-list">
+          <li className="navbar-link-item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="navbar-link-item">
+            <Link to="/add-question">New Question</Link>
+          </li>
+          <li className="navbar-link-item">
+            <Link to="/leaderboard">LeaderBoard</Link>
+          </li>
+        </ul>
       </li>
       <li className="navbar-logout-item">
         <button onClick={handleClick}>

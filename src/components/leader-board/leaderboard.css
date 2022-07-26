@@ -8,11 +8,6 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-th {
-  background-color: #04aa6d;
-  color: white;
-}
-
 .leaderboard-table {
   border-collapse: collapse;
   width: 90%;
@@ -20,8 +15,9 @@ th {
   margin: 10px;
 }
 
-.leaderboard-title {
-  margin: 10px;
+.leaderboard-table-head-row th {
+  background-color: #04aa6d;
+  color: white;
 }
 
 .leaderboard-table-user-column {
@@ -35,11 +31,15 @@ th {
   border: 1px solid #04aa6d;
   height: 40px;
   width: 40px;
-  margin: 0 10px 0 10px;
+  margin: 0 10px 0 0;
 }
 
 .leaderboard-table-name-column {
   width: 200px;
   text-align: left;
   margin: 10px;
+}
+
+.leaderboard-table-auth-user-row {
+  color: #04aa6d;
 }

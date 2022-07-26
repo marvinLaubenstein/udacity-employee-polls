@@ -40,7 +40,10 @@ const App = ({ dispatch, isLoggedIn, loading }) => {
                 element={<LeaderBoard />}
               ></Route>
             </Route>
-            <Route path="*" element={<p>There's nothing here: 404!</p>} />
+            <Route
+              path="*"
+              element={<p>There's nothing here: Error Code 404!</p>}
+            />
           </Routes>
         )}
       </div>

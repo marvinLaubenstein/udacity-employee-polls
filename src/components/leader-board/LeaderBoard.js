@@ -6,58 +6,50 @@ const LeaderBoard = (props) => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="leaderboard-title">
-        {props.users.map((user) =>
-          user.id === props.authedUser ? (
-            <div key={'test'}>
-              <h3 key={user.id + 'title'}>{`Thank you ${
-                String(props.authedUser)[0].toUpperCase() +
-                String(props.authedUser).slice(1)
-              } for ${Object.values(user.questions).length} Questions and ${
-                Object.values(user.answers).length
-              } Answers`}</h3>
-            </div>
-          ) : null
-        )}
-      </div>
-
       <table className="leaderboard-table">
         <tbody>
-          <tr>
+          <tr className="leaderboard-table-head-row">
             <th>User</th>
             <th>Answers</th>
             <th>Questions</th>
             <th>Score</th>
           </tr>
           {props.users.map((user) => (
-            <tr key={user.id}>
+            <tr
+              className={
+                user.id === props.authedUser
+                  ? 'leaderboard-table-auth-user-row'
+                  : 'leaderboard-table-user-row'
+              }
+              key={user.id}
+            >
               <td
-                key={user.id + 'id'}
                 className="leaderboard-table-user-column"
+                key={user.id + 'id'}
               >
                 <img
+                  className="leaderboard-table-avatar-column"
                   key={user.id + 'avatar'}
                   src={user.avatarURL}
                   alt="User"
-                  className="leaderboard-table-avatar-column"
                 ></img>
                 <div className="leaderboard-table-name-column">{user.id}</div>
               </td>
               <td
-                key={user.id + 'answer'}
                 className="leaderboard-table-answer-column"
+                key={user.id + 'answer'}
               >
                 {Object.values(user.answers).length}
               </td>
               <td
-                key={user.id + 'question'}
                 className="leaderboard-table-question-column"
+                key={user.id + 'question'}
               >
                 {Object.values(user.questions).length}
               </td>
               <td
-                key={user.id + 'question'}
                 className="leaderboard-table-question-column"
+                key={user.id + 'question'}
               >
                 {Object.values(user.questions).length +
                   Object.values(user.answers).length}

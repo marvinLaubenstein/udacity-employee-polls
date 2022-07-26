@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import './question-card.css';
-import { Link, useResolvedPath } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { formatDate } from '../../utils/helper';
 
 const QuestionCard = ({ answered, question, users }) => {
   return (
@@ -13,7 +14,7 @@ const QuestionCard = ({ answered, question, users }) => {
         ></img>
         <div className="question-card-list-author">{question.author}</div>
         <div className="question-card-list-date">
-          {Date(question.timestamp)}
+          {formatDate(question.timestamp)}
         </div>
       </li>
       <Link to={'/questions/' + question.id}>Show me the question</Link>

@@ -43,7 +43,7 @@ const QuestionPollPage = (props) => {
   };
 
   const calcPercentage = (answerVotes, questionVotes) => {
-    return (answerVotes / questionVotes) * 100 + ' %';
+    return Math.round((answerVotes / questionVotes) * 100) + ' %';
   };
 
   return (

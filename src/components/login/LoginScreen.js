@@ -4,16 +4,12 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleAuthUserLogin } from '../../actions/authedUser';
-import './loginscreen.css';
 
 const LoginScreen = (props) => {
   const usernameValueRef = useRef('');
   const passwordValueRef = useRef('');
 
   const handleClick = (event) => {
-    console.log('User' + usernameValueRef.current.value);
-    console.log('Password' + passwordValueRef.current.value);
-
     props.dispatch(
       handleAuthUserLogin(
         usernameValueRef.current.value,
@@ -22,6 +18,7 @@ const LoginScreen = (props) => {
     );
     event.preventDefault();
   };
+
   if (props.isLoggedIn) {
     return <Navigate to={'/'} />;
   }
@@ -50,6 +47,7 @@ const LoginScreen = (props) => {
           variant="outlined"
           fullWidth
           required
+          value="tylermcginnis"
           inputRef={usernameValueRef}
         />
         <TextField
@@ -60,6 +58,7 @@ const LoginScreen = (props) => {
           variant="outlined"
           fullWidth
           required
+          value="abc321"
           inputRef={passwordValueRef}
         />
         <Button

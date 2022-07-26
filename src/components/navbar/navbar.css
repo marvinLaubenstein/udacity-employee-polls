@@ -6,8 +6,13 @@
   background-color: #333;
 }
 
-.navbar-item {
+.navbar-link-item {
   float: left;
+}
+
+.navbar-link-list {
+  list-style-type: none;
+  margin-left: 84px;
 }
 
 .navbar-logout-item {
@@ -16,8 +21,8 @@
   text-align: center;
   padding: 14px 16px;
   margin-left: 90%;
-
   text-decoration: none;
+  height: 19px;
 }
 
 .navbar-logout-item button {
@@ -26,18 +31,18 @@
   top: 0;
   right: 0;
   text-align: center;
-  padding: 8px 40px;
   color: white;
   background: none;
+  padding: 8.5px 16.5px;
   border: none;
   font-size: 18.4px;
 }
 
 .navbar-logout-item button:hover {
-  background-color: #111;
+  background-color: #04aa6d;
 }
 
-.navbar-item a {
+.navbar-link-item a {
   display: block;
   color: white;
   text-align: center;
@@ -45,6 +50,15 @@
   text-decoration: none;
 }
 
-.navbar-item a:hover {
-  background-color: #111;
+.navbar-link-item a:hover {
+  background-color: #04aa6d;
+}
+
+.navbar-auth-user-item {
+  color: white;
+  background-color: rgb(60, 60, 60);
+  position: absolute;
+  padding: 14px;
+  text-decoration: none;
+  float: left;
 }
