@@ -44,7 +44,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #04aa6d;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 34px;
@@ -65,7 +65,7 @@
 }
 
 input:checked + .slider {
-  background-color: #04aa6d;
+  background-color: #ccc;
 }
 
 input:focus + .slider {
@@ -78,14 +78,16 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-.switch-unanswered-label {
+.switch-answered-label {
   position: absolute;
   left: 70px;
   bottom: 8px;
+  font-weight: bold;
 }
 
-.switch-answered-label {
+.switch-unanswered-label {
   position: absolute;
   right: 70px;
   bottom: 8px;
+  font-weight: bold;
 }

@@ -49,19 +49,6 @@ const Dashboard = ({ questions, questionIDs, authedUser }) => {
       {switchAnsweredQuestions ? (
         <div>
           <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>
-            Unanswered
-          </h2>
-          <GridList className="dashboard-list-new">
-            {questionIDs.map((id) =>
-              checkForAlreadyAnsweredQuestions(questions[id]) ? null : (
-                <QuestionCard questionID={id} key={'card' + id}></QuestionCard>
-              )
-            )}
-          </GridList>
-        </div>
-      ) : (
-        <div>
-          <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>
             Already Answered
           </h2>
           <GridList className="dashboard-list-old">
@@ -73,6 +60,19 @@ const Dashboard = ({ questions, questionIDs, authedUser }) => {
                   answered
                 ></QuestionCard>
               ) : null
+            )}
+          </GridList>
+        </div>
+      ) : (
+        <div>
+          <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>
+            Unanswered
+          </h2>
+          <GridList className="dashboard-list-new">
+            {questionIDs.map((id) =>
+              checkForAlreadyAnsweredQuestions(questions[id]) ? null : (
+                <QuestionCard questionID={id} key={'card' + id}></QuestionCard>
+              )
             )}
           </GridList>
         </div>
