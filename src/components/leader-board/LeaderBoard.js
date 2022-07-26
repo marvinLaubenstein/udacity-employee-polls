@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Navbar from '../navbar/Navbar';
 import './leaderboard.css';
 
-const LeaderBoard = (props) => {
+const LeaderBoard = ({ users, authedUser }) => {
   return (
     <div>
       <Navbar></Navbar>
@@ -14,10 +14,10 @@ const LeaderBoard = (props) => {
             <th>Questions</th>
             <th>Score</th>
           </tr>
-          {props.users.map((user) => (
+          {users.map((user) => (
             <tr
               className={
-                user.id === props.authedUser
+                user.id === authedUser
                   ? 'leaderboard-table-auth-user-row'
                   : 'leaderboard-table-user-row'
               }

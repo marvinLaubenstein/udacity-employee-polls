@@ -5,12 +5,12 @@ import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleAuthUserLogin } from '../../actions/authedUser';
 
-const LoginScreen = (props) => {
+const LoginScreen = ({ isLoggedIn, dispatch }) => {
   const usernameValueRef = useRef('');
   const passwordValueRef = useRef('');
 
   const handleClick = (event) => {
-    props.dispatch(
+    dispatch(
       handleAuthUserLogin(
         usernameValueRef.current.value,
         passwordValueRef.current.value
@@ -19,7 +19,7 @@ const LoginScreen = (props) => {
     event.preventDefault();
   };
 
-  if (props.isLoggedIn) {
+  if (isLoggedIn) {
     return <Navigate to={-1} />;
   }
 

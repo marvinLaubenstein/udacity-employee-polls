@@ -4,15 +4,15 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { handleAuthUserLogout } from '../../actions/authedUser';
 import { connect } from 'react-redux';
 
-const Navbar = (props) => {
+const Navbar = ({ authedUser, dispatch }) => {
   const handleClick = () => {
-    props.dispatch(handleAuthUserLogout(props.authedUser));
+    dispatch(handleAuthUserLogout(authedUser));
   };
 
   return (
     <ul className="navbar">
       <li>
-        <div className="navbar-auth-user-item">{props.authedUser}</div>
+        <div className="navbar-auth-user-item">{authedUser}</div>
       </li>
       <li>
         <ul className="navbar-link-list">

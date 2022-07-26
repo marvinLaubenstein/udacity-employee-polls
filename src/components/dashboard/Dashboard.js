@@ -4,11 +4,11 @@ import GridList from '@material-ui/core/ImageList';
 import './dashboard.css';
 import Navbar from '../navbar/Navbar';
 
-const Dashboard = (props) => {
+const Dashboard = ({ questions, questionIDs, authedUser }) => {
   const checkForAlreadyAnsweredQuestions = (question) => {
     const questionOptionOneVotes = question.optionOne.votes;
     const questionOptionTwoVotes = question.optionTwo.votes;
-    const loggedInUserName = props.authedUser;
+    const loggedInUserName = authedUser;
     let alreadyAnswered = false;
 
     questionOptionOneVotes.map((votingName) => {
@@ -30,13 +30,12 @@ const Dashboard = (props) => {
       <Navbar></Navbar>
       <h1 style={{ textAlign: 'center' }}>
         Your Question Dashboard,{' '}
-        {String(props.authedUser)[0].toUpperCase() +
-          String(props.authedUser).slice(1)}
+        {String(authedUser)[0].toUpperCase() + String(authedUser).slice(1)}
       </h1>
       <h2 style={{ paddingTop: '20px', paddingLeft: '20px' }}>Unanswered</h2>
       <GridList className="dashboard-list-new">
-        {props.questionIDs.map((id) =>
-          checkForAlreadyAnsweredQuestions(props.questions[id]) ? null : (
+        {questionIDs.map((id) =>
+          checkForAlreadyAnsweredQuestions(questions[id]) ? null : (
             <QuestionCard questionID={id} key={'card' + id}></QuestionCard>
           )
         )}
@@ -45,8 +44,8 @@ const Dashboard = (props) => {
         Already Answered
       </h2>
       <GridList className="dashboard-list-old">
-        {props.questionIDs.map((id) =>
-          checkForAlreadyAnsweredQuestions(props.questions[id]) ? (
+        {questionIDs.map((id) =>
+          checkForAlreadyAnsweredQuestions(questions[id]) ? (
             <QuestionCard
               questionID={id}
               key={'card' + id}
@@ -64,7 +63,6 @@ const mapStateToProps = ({ questions, users, authedUser }) => ({
     (a, b) => questions[b].timestamp - questions[a].timestamp
   ),
   questions,
-  users,
   authedUser,
 });
 
