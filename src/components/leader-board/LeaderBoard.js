@@ -49,7 +49,7 @@ const LeaderBoard = (props) => {
               </td>
               <td
                 className="leaderboard-table-question-column"
-                key={user.id + 'question'}
+                key={user.id + 'sum'}
               >
                 {Object.values(user.questions).length +
                   Object.values(user.answers).length}

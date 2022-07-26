@@ -29,11 +29,7 @@ const App = ({ dispatch, isLoggedIn, loading }) => {
                 exact
                 element={<QuestionPollPage />}
               />
-              <Route
-                path="/add-question"
-                exact
-                element={<QuestionAddingPage />}
-              />
+              <Route path="/add" exact element={<QuestionAddingPage />} />
               <Route
                 path="/leaderboard"
                 exact

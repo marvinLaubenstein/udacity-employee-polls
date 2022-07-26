@@ -20,7 +20,7 @@ const LoginScreen = (props) => {
   };
 
   if (props.isLoggedIn) {
-    return <Navigate to={'/'} />;
+    return <Navigate to={-1} />;
   }
 
   return (
