@@ -6,7 +6,6 @@ import reducer from '../../reducers';
 import middleware from '../../middleware';
 import { BrowserRouter } from 'react-router-dom';
 import Navbar from './Navbar';
-import { handleAuthUserLogin } from '../../actions/authedUser';
 
 describe('Navbar', () => {
   it('should match snapshot after render', () => {
