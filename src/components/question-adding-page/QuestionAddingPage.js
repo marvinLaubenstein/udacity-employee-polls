@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { handleAddNewQuestion } from '../../actions/questions';
@@ -35,7 +35,10 @@ const QuestionAddingPage = ({ dispatch }) => {
         <h1 className="question-adding-page-title">Would you rather</h1>
 
         {error ? (
-          <h3 className="question-adding-page-errormessage">
+          <h3
+            className="question-adding-page-errormessage"
+            data-testid="error-title"
+          >
             Please enter two answers!
           </h3>
         ) : null}
@@ -44,6 +47,7 @@ const QuestionAddingPage = ({ dispatch }) => {
         <label>Answer 1:</label>
         <input
           className="question-adding-page-input"
+          data-testid="answer-one-input"
           type="text"
           id="question1"
           onChange={handleChange}
@@ -53,13 +57,18 @@ const QuestionAddingPage = ({ dispatch }) => {
         <label>Answer 2:</label>
         <input
           className="question-adding-page-input"
+          data-testid="answer-two-input"
           type="text"
           id="question2"
           onChange={handleChange}
         ></input>
       </div>
 
-      <button className="question-adding-page-button" onClick={handleClick}>
+      <button
+        className="question-adding-page-button"
+        onClick={handleClick}
+        data-testid="submit-button"
+      >
         Add them !
       </button>
     </div>

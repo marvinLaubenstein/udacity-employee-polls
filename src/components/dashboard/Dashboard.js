@@ -28,7 +28,6 @@ const Dashboard = ({ questions, questionIDs, authedUser }) => {
   };
 
   const handleChange = (e) => {
-    console.log(e.target.checked);
     setSwitchAnsweredQuestions(e.target.checked);
   };
 

@@ -7,8 +7,6 @@ import reducer from './reducers';
 import middleware from './middleware';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-//TODO: refactor outdated functions
-
 const store = createStore(reducer, middleware);
 
 const container = document.getElementById('root');

@@ -16,14 +16,11 @@ export function resetAuthedUser() {
 
 export function handleAuthUserLogin(username, password) {
   return (dispatch, getState) => {
-    console.log('login try');
     const { users } = getState();
 
     const user = Object.values(users).find(
       (user) => user.id === username && user.password === password
     );
-
-    console.log(user == undefined ? 'wrong data' : 'login sucess');
 
     if (!!user) {
       return dispatch(setAuthedUser(user.id));
