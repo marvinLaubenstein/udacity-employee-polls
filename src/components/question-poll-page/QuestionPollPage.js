@@ -45,7 +45,13 @@ const QuestionPollPage = (props) => {
   };
 
   const generatePercentageString = (answerNumber, userVotes) => {
-    return getAnswerPercentage(answerNumber) + '  (' + userVotes + ' Vote)';
+    return (
+      getAnswerPercentage(answerNumber) +
+      '  (' +
+      userVotes +
+      `${userVotes > 1 || userVotes === 0 ? ' Votes' : ' Vote'}` +
+      ')'
+    );
   };
 
   return (
