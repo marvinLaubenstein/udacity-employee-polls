@@ -20,7 +20,7 @@ const QuestionAddingPage = ({ dispatch }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (firstAnswer === '' || secondAnswer === '') {
+    if (firstAnswer || secondAnswer) {
       setError(true);
     } else {
       dispatch(handleAddNewQuestion(firstAnswer, secondAnswer));
