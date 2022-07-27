@@ -51,7 +51,6 @@ const QuestionAddingPage = ({ dispatch }) => {
           type="text"
           id="question1"
           onChange={handleChange}
-          data-testid="answer-one-input"
         ></input>
       </div>
       <div className="question-adding-page-answer-two">
@@ -62,7 +61,6 @@ const QuestionAddingPage = ({ dispatch }) => {
           type="text"
           id="question2"
           onChange={handleChange}
-          data-testid="answer-two-input"
         ></input>
       </div>
 

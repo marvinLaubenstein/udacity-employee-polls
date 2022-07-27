@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { handleAuthUserLogout } from '../../actions/authedUser';
 import { connect } from 'react-redux';
-import React from 'react';
 
 const Navbar = ({ authedUser, dispatch }) => {
   const handleClick = () => {
