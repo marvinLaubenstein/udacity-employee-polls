@@ -1,19 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './question-poll-page.css';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { handleSelectedAnswer } from '../../actions/questions';
 import Navbar from '../navbar/Navbar';
 
 const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
-  const navigate = useNavigate();
-
-  const handleAnswer = (e) => {
-    e.preventDefault();
-    e.target.id === 'answer1'
-      ? dispatch(handleSelectedAnswer(question.id, 'optionOne'))
-      : dispatch(handleSelectedAnswer(question.id, 'optionTwo'));
-    navigate('/');
+  const handleAnswerOne = () => {
+    dispatch(handleSelectedAnswer(question.id, 'optionOne'));
+  };
+  const handleAnswerTwo = () => {
+    dispatch(handleSelectedAnswer(question.id, 'optionTwo'));
   };
 
   const votedQuestion = () => {
@@ -70,7 +67,7 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
         <button
           id="answer1"
           className={getClassName('one', question.optionOne)}
-          onClick={votedQuestion() ? null : handleAnswer}
+          onClick={votedQuestion() ? null : handleAnswerOne}
           style={
             votedQuestion() ? { cursor: 'default' } : { cursor: 'pointer' }
           }
@@ -88,7 +85,7 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
           style={
             votedQuestion() ? { cursor: 'default' } : { cursor: 'pointer' }
           }
-          onClick={votedQuestion() ? null : handleAnswer}
+          onClick={votedQuestion() ? null : handleAnswerTwo}
         >
           <div>{question.optionTwo.text}</div>
           {votedQuestion()
@@ -101,12 +98,9 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
 };
 
 const mapStateToProps = ({ questions, authedUser, users }) => {
-  const question = Object.values(questions).find(
-    (question) => question.id === useParams().id
-  );
-
+  const id = window.location.pathname.split('/').pop();
   return {
-    question: question,
+    question: questions[id],
     authedUser,
     users,
   };
