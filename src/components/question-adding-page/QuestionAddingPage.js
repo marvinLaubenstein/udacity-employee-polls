@@ -6,8 +6,8 @@ import Navbar from '../navbar/Navbar';
 import './questionaddingpage.css';
 
 const QuestionAddingPage = ({ dispatch }) => {
-  const [firstAnswer, setFirstAnswer] = useState([]);
-  const [secondAnswer, setSecondAnswer] = useState([]);
+  const [firstAnswer, setFirstAnswer] = useState('');
+  const [secondAnswer, setSecondAnswer] = useState('');
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const QuestionAddingPage = ({ dispatch }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (firstAnswer || secondAnswer) {
+    if (firstAnswer === '' || secondAnswer === '') {
       setError(true);
     } else {
       dispatch(handleAddNewQuestion(firstAnswer, secondAnswer));
