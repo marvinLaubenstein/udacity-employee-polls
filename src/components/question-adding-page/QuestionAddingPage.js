@@ -19,7 +19,7 @@ const QuestionAddingPage = ({ dispatch }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (firstAnswer == '' || secondAnswer == '') {
+    if (firstAnswer || secondAnswer) {
       setError(true);
     } else {
       dispatch(handleAddNewQuestion(firstAnswer, secondAnswer));
@@ -51,6 +51,7 @@ const QuestionAddingPage = ({ dispatch }) => {
           type="text"
           id="question1"
           onChange={handleChange}
+          data-testid="answer-one-input"
         ></input>
       </div>
       <div className="question-adding-page-answer-two">
@@ -61,6 +62,7 @@ const QuestionAddingPage = ({ dispatch }) => {
           type="text"
           id="question2"
           onChange={handleChange}
+          data-testid="answer-two-input"
         ></input>
       </div>
 
