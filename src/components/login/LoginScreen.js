@@ -47,7 +47,6 @@ const LoginScreen = ({ isLoggedIn, dispatch }) => {
           variant="outlined"
           fullWidth
           required
-          value="tylermcginnis"
           inputRef={usernameValueRef}
         />
         <TextField
@@ -58,7 +57,6 @@ const LoginScreen = ({ isLoggedIn, dispatch }) => {
           variant="outlined"
           fullWidth
           required
-          value="abc321"
           inputRef={passwordValueRef}
         />
         <Button

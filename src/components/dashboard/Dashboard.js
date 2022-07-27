@@ -10,18 +10,17 @@ const Dashboard = ({ questions, questionIDs, authedUser }) => {
   const checkForAlreadyAnsweredQuestions = (question) => {
     const questionOptionOneVotes = question.optionOne.votes;
     const questionOptionTwoVotes = question.optionTwo.votes;
-    const loggedInUserName = authedUser;
     let alreadyAnswered = false;
 
     questionOptionOneVotes.map((votingName) => {
-      if (votingName === loggedInUserName) {
+      if (votingName === authedUser) {
         alreadyAnswered = true;
         return alreadyAnswered;
       }
       return alreadyAnswered;
     });
     questionOptionTwoVotes.map((votingName) => {
-      if (votingName === loggedInUserName) {
+      if (votingName === authedUser) {
         alreadyAnswered = true;
         return alreadyAnswered;
       }
