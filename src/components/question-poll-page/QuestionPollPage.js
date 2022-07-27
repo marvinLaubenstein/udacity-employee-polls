@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import './question-poll-page.css';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -7,20 +7,18 @@ import Navbar from '../navbar/Navbar';
 
 const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
   const navigate = useNavigate();
+  const [voted, setVoted] = useState(
+    question.optionOne.votes.includes(authedUser) ||
+      question.optionTwo.votes.includes(authedUser)
+  );
 
   const handleAnswer = (e) => {
     e.preventDefault();
     e.target.id === 'answer1'
       ? dispatch(handleSelectedAnswer(question.id, 'optionOne'))
       : dispatch(handleSelectedAnswer(question.id, 'optionTwo'));
+    setVoted(true);
     navigate('/');
-  };
-
-  const votedQuestion = () => {
-    return (
-      question.optionOne.votes.includes(authedUser) ||
-      question.optionTwo.votes.includes(authedUser)
-    );
   };
 
   const getClassName = (questionNumber, question) => {
@@ -70,14 +68,12 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
         <button
           id="answer1"
           className={getClassName('one', question.optionOne)}
-          onClick={votedQuestion() ? null : handleAnswer}
-          style={
-            votedQuestion() ? { cursor: 'default' } : { cursor: 'pointer' }
-          }
+          onClick={voted ? null : handleAnswer}
+          style={voted ? { cursor: 'default' } : { cursor: 'pointer' }}
         >
           <div>{question.optionOne.text}</div>
           <div>
-            {votedQuestion()
+            {voted
               ? generatePercentageString('one', question.optionOne.votes.length)
               : null}
           </div>
@@ -85,13 +81,11 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
         <button
           id="answer2"
           className={getClassName('two', question.optionTwo)}
-          style={
-            votedQuestion() ? { cursor: 'default' } : { cursor: 'pointer' }
-          }
-          onClick={votedQuestion() ? null : handleAnswer}
+          style={voted ? { cursor: 'default' } : { cursor: 'pointer' }}
+          onClick={voted ? null : handleAnswer}
         >
           <div>{question.optionTwo.text}</div>
-          {votedQuestion()
+          {voted
             ? generatePercentageString('two', question.optionTwo.votes.length)
             : null}
         </button>
