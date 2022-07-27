@@ -1,70 +1,161 @@
-# Getting Started with Create React App
+# Employee Polls (Udacity) 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-## Available Scripts
+This project is my variant of the Employee Polls project created for Udacity's React course. 
+This is an application that allows users to vote via polls which answer they would rather do in a "Would you rather" question scenario.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+How to start the application:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Install all required project dependencies
+```sh
+npm i
+```
+- Start the Development Server
+```sh
+npm start
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Testing (Jest)
+- Navigate to the correct folder 
+```sh
+npm test 
+```
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## src/File-structure 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+├── App.css
+├── App.js
+├── App.test.js
+├── __snapshots__
+│   └── App.test.js.snap
+├── actions
+│   ├── authedUser.js
+│   ├── questions.js
+│   ├── shared.js
+│   └── users.js
+├── components
+│   ├── dashboard
+│   │   ├── Dashboard.js
+│   │   └── dashboard.css
+│   ├── leader-board
+│   │   ├── LeaderBoard.js
+│   │   └── leaderboard.css
+│   ├── login
+│   │   ├── LoginScreen.js
+│   │   ├── LoginScreen.test.js
+│   │   └── __snapshots__
+│   │       └── LoginScreen.test.js.snap
+│   ├── navbar
+│   │   ├── Navbar.js
+│   │   ├── Navbar.test.js
+│   │   ├── __snapshots__
+│   │   │   └── Navbar.test.js.snap
+│   │   └── navbar.css
+│   ├── privateroute
+│   │   └── PrivateRoutes.js
+│   ├── question-adding-page
+│   │   ├── QuestionAddingPage.js
+│   │   ├── QuestionAddingPage.test.js
+│   │   ├── __snapshots__
+│   │   │   └── QuestionAddingPage.test.js.snap
+│   │   └── questionaddingpage.css
+│   ├── question-card
+│   │   ├── QuestionCard.js
+│   │   └── question-card.css
+│   └── question-poll-page
+│       ├── QuestionPollPage.js
+│       └── question-poll-page.css
+├── data
+│   ├── _DATA.js
+│   └── _DATA.test.js
+├── index.css
+├── index.js
+├── middleware
+│   ├── index.js
+│   └── logger.js
+├── reducers
+│   ├── authedUser.js
+│   ├── index.js
+│   ├── questions.js
+│   └── users.js
+├── reportWebVitals.js
+├── setupTests.js
+└── utils
+    ├── api.js
+    └── helper.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## _DATA
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Udacity has provided a `_DATA.js`file, which contains not only exemplary user and question data, but also the possibility to modify them with the following functions 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+There are 4 possible requests:
+- 1️⃣ [`_getUsers`](#_getUsers)
+- 2️⃣ [`_getQuestions`](#_getQuestions)
+- 3️⃣ [`_saveQuestion`](#_saveQuestion)
+- 4️⃣ [`_saveQuestionAnswer`](#_saveQuestionAnswer)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 1️⃣`_getUsers`
 
-## Learn More
+Method Signature:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+ _getUsers();
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### 2️⃣`_getQuestions`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Method Signature:
 
-### Analyzing the Bundle Size
+```js
+_getQuestions();
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 3️⃣`update`
 
-### Advanced Configuration
+Method Signature:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```js
+_saveQuestion(question);
+```
 
-### Deployment
+### 4️⃣`search`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Method Signature:
 
-### `npm run build` fails to minify
+```js
+_saveQuestionAnswer({ authedUser, qid, answer })
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Important
+
+Creating new questions or answering questions does not directly change _DATA.js. Therefore the page resets itself when the page is reloaded.
+
+## Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebook/create-react-app/blob/main/packages/cra-template/template/README.md).
+
+## Contributing
+
+This repository was created based on the entry code for _all_ Udacity students.
+
+For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
+
+
+
+
+
