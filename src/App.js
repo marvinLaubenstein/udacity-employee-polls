@@ -10,6 +10,7 @@ import LoginScreen from './components/login/LoginScreen';
 import { Routes, Route } from 'react-router-dom';
 import LeaderBoard from './components/leader-board/LeaderBoard';
 import PrivateRoutes from './components/privateroute/PrivateRoutes';
+import ErrorPage from './components/error/ErrorPage';
 
 const App = ({ dispatch, isLoggedIn, loading }) => {
   useEffect(() => {
@@ -34,12 +35,9 @@ const App = ({ dispatch, isLoggedIn, loading }) => {
                 path="/leaderboard"
                 exact
                 element={<LeaderBoard />}
-              ></Route>
+              ></Route>{' '}
+              <Route path="*" element={<ErrorPage />} />
             </Route>
-            <Route
-              path="*"
-              element={<p>There's nothing here: 404 Error (Page Not Found)!</p>}
-            />
           </Routes>
         )}
       </div>
