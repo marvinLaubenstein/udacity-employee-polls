@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import './question-poll-page.css';
 import { Navigate } from 'react-router-dom';
@@ -14,13 +14,6 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
   };
   const handleAnswerTwo = () => {
     dispatch(handleSelectedAnswer(question.id, 'optionTwo'));
-  };
-
-  const votedQuestion = () => {
-    return (
-      question.optionOne.votes.includes(authedUser) ||
-      question.optionTwo.votes.includes(authedUser)
-    );
   };
 
   const getClassName = (questionNumber, question) => {
@@ -77,7 +70,7 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
         >
           <div>{question.optionOne.text}</div>
           <div>
-            {votedQuestion()
+            {voted
               ? generatePercentageString('one', question.optionOne.votes.length)
               : null}
           </div>
@@ -91,7 +84,7 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
           onClick={votedQuestion() ? null : handleAnswerTwo}
         >
           <div>{question.optionTwo.text}</div>
-          {votedQuestion()
+          {voted
             ? generatePercentageString('two', question.optionTwo.votes.length)
             : null}
         </button>
