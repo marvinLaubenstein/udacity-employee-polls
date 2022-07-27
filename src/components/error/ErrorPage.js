@@ -11,9 +11,9 @@ const ErrorPage = () => {
           <defs>
             <filter id="glow">
               <fegaussianblur
-                class="blur"
+                className="blur"
                 result="coloredBlur"
-                stddeviation="4"
+                stdDeviation="4"
               ></fegaussianblur>
               <femerge>
                 <femergenode in="coloredBlur"></femergenode>

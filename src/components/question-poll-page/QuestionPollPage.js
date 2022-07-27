@@ -1,24 +1,19 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import './question-poll-page.css';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { handleSelectedAnswer } from '../../actions/questions';
 import Navbar from '../navbar/Navbar';
 
 const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
-  const navigate = useNavigate();
-  const [voted, setVoted] = useState(
-    question.optionOne.votes.includes(authedUser) ||
-      question.optionTwo.votes.includes(authedUser)
-  );
-
-  const handleAnswer = (e) => {
-    e.preventDefault();
-    e.target.id === 'answer1'
-      ? dispatch(handleSelectedAnswer(question.id, 'optionOne'))
-      : dispatch(handleSelectedAnswer(question.id, 'optionTwo'));
-    setVoted(true);
-    navigate('/');
+  if (!authedUser || !question || !users) {
+    return <Navigate to="/404" />;
+  }
+  const handleAnswerOne = () => {
+    dispatch(handleSelectedAnswer(question.id, 'optionOne'));
+  };
+  const handleAnswerTwo = () => {
+    dispatch(handleSelectedAnswer(question.id, 'optionTwo'));
   };
 
   const getClassName = (questionNumber, question) => {
@@ -68,8 +63,10 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
         <button
           id="answer1"
           className={getClassName('one', question.optionOne)}
-          onClick={voted ? null : handleAnswer}
-          style={voted ? { cursor: 'default' } : { cursor: 'pointer' }}
+          onClick={votedQuestion() ? null : handleAnswerOne}
+          style={
+            votedQuestion() ? { cursor: 'default' } : { cursor: 'pointer' }
+          }
         >
           <div>{question.optionOne.text}</div>
           <div>
@@ -81,8 +78,10 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
         <button
           id="answer2"
           className={getClassName('two', question.optionTwo)}
-          style={voted ? { cursor: 'default' } : { cursor: 'pointer' }}
-          onClick={voted ? null : handleAnswer}
+          style={
+            votedQuestion() ? { cursor: 'default' } : { cursor: 'pointer' }
+          }
+          onClick={votedQuestion() ? null : handleAnswerTwo}
         >
           <div>{question.optionTwo.text}</div>
           {voted
@@ -95,12 +94,9 @@ const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
 };
 
 const mapStateToProps = ({ questions, authedUser, users }) => {
-  const question = Object.values(questions).find(
-    (question) => question.id === useParams().id
-  );
-
+  const id = window.location.pathname.split('/').pop();
   return {
-    question: question,
+    question: questions[id],
     authedUser,
     users,
   };
