@@ -1,13 +1,29 @@
-import React, { useRef } from 'react';
-import { Grid, Paper, Avatar, TextField, Button } from '@material-ui/core';
+import React, { useRef, useState } from 'react';
+import {
+  Grid,
+  Paper,
+  Avatar,
+  TextField,
+  Button,
+  MenuItem,
+} from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleAuthUserLogin } from '../../actions/authedUser';
 
-const LoginScreen = ({ isLoggedIn, dispatch }) => {
+const LoginScreen = ({ isLoggedIn, dispatch, users }) => {
   const usernameValueRef = useRef('');
   const passwordValueRef = useRef('');
+  const [loginUser, setLoginUser] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+
+  const handleChange = (event) => {
+    setLoginUser(event.target.value);
+    users.map((user) =>
+      user.id === event.target.value ? setLoginPassword(user.password) : null
+    );
+  };
 
   const handleClick = (event) => {
     dispatch(
@@ -47,8 +63,17 @@ const LoginScreen = ({ isLoggedIn, dispatch }) => {
           variant="outlined"
           fullWidth
           required
+          value={loginUser}
+          select
           inputRef={usernameValueRef}
-        />
+          onChange={handleChange}
+        >
+          {users.map((user) => (
+            <MenuItem key={user.id} value={user.id}>
+              {user.id}
+            </MenuItem>
+          ))}
+        </TextField>
         <TextField
           style={{ paddingBottom: '10px' }}
           label="Password"
@@ -57,6 +82,7 @@ const LoginScreen = ({ isLoggedIn, dispatch }) => {
           variant="outlined"
           fullWidth
           required
+          value={loginPassword}
           inputRef={passwordValueRef}
         />
         <Button
@@ -74,8 +100,9 @@ const LoginScreen = ({ isLoggedIn, dispatch }) => {
   );
 };
 
-const mapStateToProps = ({ authedUser }) => ({
+const mapStateToProps = ({ authedUser, users }) => ({
   isLoggedIn: !!authedUser,
+  users: Object.values(users),
 });
 
 export default connect(mapStateToProps)(LoginScreen);
