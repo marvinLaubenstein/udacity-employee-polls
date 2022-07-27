@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import './question-poll-page.css';
 import { useParams, useNavigate } from 'react-router-dom';

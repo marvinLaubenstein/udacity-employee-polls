@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import './question-card.css';
 import { Link } from 'react-router-dom';

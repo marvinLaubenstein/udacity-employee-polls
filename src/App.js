@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from './actions/shared';
@@ -14,7 +15,6 @@ const App = ({ dispatch, isLoggedIn, loading }) => {
   useEffect(() => {
     dispatch(handleInitialData());
   });
-  console.log('Here' + { isLoggedIn });
   return (
     <Fragment>
       <LoadingBar />
@@ -38,7 +38,7 @@ const App = ({ dispatch, isLoggedIn, loading }) => {
             </Route>
             <Route
               path="*"
-              element={<p>There's nothing here: Error Code 404!</p>}
+              element={<p>There's nothing here: 404 Error (Page Not Found)!</p>}
             />
           </Routes>
         )}

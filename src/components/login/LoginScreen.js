@@ -24,7 +24,7 @@ const LoginScreen = ({ isLoggedIn, dispatch }) => {
   }
 
   return (
-    <Grid>
+    <Grid data-testid="login">
       <Paper
         className="login-screen-paper"
         elevation={10}

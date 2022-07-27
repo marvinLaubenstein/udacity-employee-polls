@@ -3,7 +3,7 @@ import QuestionCard from '../question-card/QuestionCard';
 import GridList from '@material-ui/core/ImageList';
 import './dashboard.css';
 import Navbar from '../navbar/Navbar';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const Dashboard = ({ questions, questionIDs, authedUser }) => {
   const [switchAnsweredQuestions, setSwitchAnsweredQuestions] = useState(false);
@@ -28,7 +28,6 @@ const Dashboard = ({ questions, questionIDs, authedUser }) => {
   };
 
   const handleChange = (e) => {
-    console.log(e.target.checked);
     setSwitchAnsweredQuestions(e.target.checked);
   };
 

@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionAddingPage should match snapshot after render 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <ul
+          class="navbar"
+        >
+          <li>
+            <div
+              class="navbar-auth-user-item"
+            />
+          </li>
+          <li>
+            <ul
+              class="navbar-link-list"
+            >
+              <li
+                class="navbar-link-item"
+              >
+                <a
+                  href="/"
+                >
+                  Home
+                </a>
+              </li>
+              <li
+                class="navbar-link-item"
+              >
+                <a
+                  href="/add"
+                >
+                  New Question
+                </a>
+              </li>
+              <li
+                class="navbar-link-item"
+              >
+                <a
+                  href="/leaderboard"
+                >
+                  LeaderBoard
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="navbar-logout-item"
+          >
+            <button>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="LogoutIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"
+                />
+              </svg>
+            </button>
+          </li>
+        </ul>
+        <div
+          class="question-adding-page-title-wrapper"
+        >
+          <h1
+            class="question-adding-page-title"
+          >
+            Would you rather
+          </h1>
+        </div>
+        <div
+          class="question-adding-page-answer-one"
+        >
+          <label>
+            Answer 1:
+          </label>
+          <input
+            class="question-adding-page-input"
+            data-testid="answer-one-input"
+            id="question1"
+            type="text"
+          />
+        </div>
+        <div
+          class="question-adding-page-answer-two"
+        >
+          <label>
+            Answer 2:
+          </label>
+          <input
+            class="question-adding-page-input"
+            data-testid="answer-two-input"
+            id="question2"
+            type="text"
+          />
+        </div>
+        <button
+          class="question-adding-page-button"
+          data-testid="submit-button"
+        >
+          Add them !
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <ul
+        class="navbar"
+      >
+        <li>
+          <div
+            class="navbar-auth-user-item"
+          />
+        </li>
+        <li>
+          <ul
+            class="navbar-link-list"
+          >
+            <li
+              class="navbar-link-item"
+            >
+              <a
+                href="/"
+              >
+                Home
+              </a>
+            </li>
+            <li
+              class="navbar-link-item"
+            >
+              <a
+                href="/add"
+              >
+                New Question
+              </a>
+            </li>
+            <li
+              class="navbar-link-item"
+            >
+              <a
+                href="/leaderboard"
+              >
+                LeaderBoard
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="navbar-logout-item"
+        >
+          <button>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="LogoutIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"
+              />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <div
+        class="question-adding-page-title-wrapper"
+      >
+        <h1
+          class="question-adding-page-title"
+        >
+          Would you rather
+        </h1>
+      </div>
+      <div
+        class="question-adding-page-answer-one"
+      >
+        <label>
+          Answer 1:
+        </label>
+        <input
+          class="question-adding-page-input"
+          data-testid="answer-one-input"
+          id="question1"
+          type="text"
+        />
+      </div>
+      <div
+        class="question-adding-page-answer-two"
+      >
+        <label>
+          Answer 2:
+        </label>
+        <input
+          class="question-adding-page-input"
+          data-testid="answer-two-input"
+          id="question2"
+          type="text"
+        />
+      </div>
+      <button
+        class="question-adding-page-button"
+        data-testid="submit-button"
+      >
+        Add them !
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
