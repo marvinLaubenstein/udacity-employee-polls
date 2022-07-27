@@ -1,11 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './question-poll-page.css';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { handleSelectedAnswer } from '../../actions/questions';
 import Navbar from '../navbar/Navbar';
 
 const QuestionPollPage = ({ question, authedUser, users, dispatch }) => {
+  if (!authedUser || !question || !users) {
+    return <Navigate to="/404" />;
+  }
   const handleAnswerOne = () => {
     dispatch(handleSelectedAnswer(question.id, 'optionOne'));
   };

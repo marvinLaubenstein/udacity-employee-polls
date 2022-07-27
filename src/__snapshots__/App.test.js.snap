@@ -70,14 +70,34 @@ Object {
               <div
                 class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
               >
+                <div
+                  aria-haspopup="listbox"
+                  class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span>
+                    ​
+                  </span>
+                </div>
                 <input
-                  aria-invalid="false"
-                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  aria-hidden="true"
+                  class="MuiSelect-nativeInput"
                   placeholder="Enter username"
                   required=""
-                  type="text"
+                  tabindex="-1"
                   value=""
                 />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
                 <fieldset
                   aria-hidden="true"
                   class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
@@ -222,14 +242,34 @@ Object {
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
             >
+              <div
+                aria-haspopup="listbox"
+                class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+                role="button"
+                tabindex="0"
+              >
+                <span>
+                  ​
+                </span>
+              </div>
               <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
+                aria-hidden="true"
+                class="MuiSelect-nativeInput"
                 placeholder="Enter username"
                 required=""
-                type="text"
+                tabindex="-1"
                 value=""
               />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
               <fieldset
                 aria-hidden="true"
                 class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
