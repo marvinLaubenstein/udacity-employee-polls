@@ -31,7 +31,6 @@ function addAuthUserAnswerQuestion(author, qid, answer) {
 export function handleAddNewQuestion(firstAnswer, secondAnswer) {
   return async (dispatch, getState) => {
     const { authedUser } = getState();
-
     const question = await saveQuestion(firstAnswer, secondAnswer, authedUser);
     dispatch(addNewQuestion(question));
     dispatch(addNewQuestionToUser(question));

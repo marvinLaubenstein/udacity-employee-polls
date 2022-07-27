@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { handleAddNewQuestion } from '../../actions/questions';
@@ -48,6 +47,7 @@ const QuestionAddingPage = ({ dispatch }) => {
         <label>Answer 1:</label>
         <input
           className="question-adding-page-input"
+          data-testid="answer-one-input"
           type="text"
           id="question1"
           onChange={handleChange}
@@ -58,6 +58,7 @@ const QuestionAddingPage = ({ dispatch }) => {
         <label>Answer 2:</label>
         <input
           className="question-adding-page-input"
+          data-testid="answer-two-input"
           type="text"
           id="question2"
           onChange={handleChange}
