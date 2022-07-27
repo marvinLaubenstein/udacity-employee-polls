@@ -59,6 +59,7 @@
   background-color: rgb(60, 60, 60);
   position: absolute;
   padding: 14px;
+  width: 100px;
   text-decoration: none;
   float: left;
 }
