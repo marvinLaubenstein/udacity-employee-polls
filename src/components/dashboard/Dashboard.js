@@ -14,14 +14,18 @@ const Dashboard = ({ questions, questionIDs, authedUser }) => {
     let alreadyAnswered = false;
 
     questionOptionOneVotes.map((votingName) => {
-      votingName === loggedInUserName
-        ? (alreadyAnswered = true)
-        : (alreadyAnswered = alreadyAnswered);
+      if (votingName === loggedInUserName) {
+        alreadyAnswered = true;
+        return alreadyAnswered;
+      }
+      return alreadyAnswered;
     });
     questionOptionTwoVotes.map((votingName) => {
-      votingName === loggedInUserName
-        ? (alreadyAnswered = true)
-        : (alreadyAnswered = alreadyAnswered);
+      if (votingName === loggedInUserName) {
+        alreadyAnswered = true;
+        return alreadyAnswered;
+      }
+      return alreadyAnswered;
     });
 
     return alreadyAnswered;
