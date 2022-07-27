@@ -41,8 +41,8 @@ Object {
             style="padding-bottom: 10px;"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
-              data-shrink="true"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="false"
             >
               Username
               <span
@@ -62,14 +62,14 @@ Object {
                 placeholder="Enter username"
                 required=""
                 type="text"
-                value="tylermcginnis"
+                value=""
               />
               <fieldset
                 aria-hidden="true"
                 class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                  class="PrivateNotchedOutline-legendLabelled-3"
                 >
                   <span>
                     Username
@@ -84,8 +84,8 @@ Object {
             style="padding-bottom: 10px;"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
-              data-shrink="true"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="false"
             >
               Password
               <span
@@ -105,14 +105,14 @@ Object {
                 placeholder="Enter password"
                 required=""
                 type="password"
-                value="abc321"
+                value=""
               />
               <fieldset
                 aria-hidden="true"
                 class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                  class="PrivateNotchedOutline-legendLabelled-3"
                 >
                   <span>
                     Password
@@ -178,8 +178,8 @@ Object {
           style="padding-bottom: 10px;"
         >
           <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
-            data-shrink="true"
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
           >
             Username
             <span
@@ -199,14 +199,14 @@ Object {
               placeholder="Enter username"
               required=""
               type="text"
-              value="tylermcginnis"
+              value=""
             />
             <fieldset
               aria-hidden="true"
               class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                class="PrivateNotchedOutline-legendLabelled-3"
               >
                 <span>
                   Username
@@ -221,8 +221,8 @@ Object {
           style="padding-bottom: 10px;"
         >
           <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
-            data-shrink="true"
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
           >
             Password
             <span
@@ -242,14 +242,14 @@ Object {
               placeholder="Enter password"
               required=""
               type="password"
-              value="abc321"
+              value=""
             />
             <fieldset
               aria-hidden="true"
               class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                class="PrivateNotchedOutline-legendLabelled-3"
               >
                 <span>
                   Password
